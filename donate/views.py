@@ -5,7 +5,6 @@ from .models import Donation, BulletinBoard
 from .serializers import DonationSerializer, BulletinBoardSerializer
 
 
-
 class DonationViewSet(viewsets.ModelViewSet):
     queryset = Donation.objects.all()
     serializer_class = DonationSerializer
