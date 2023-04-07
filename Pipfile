@@ -9,6 +9,7 @@ djangorestframework = "*"
 requests = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-filter = "*"
 
 [dev-packages]
 
