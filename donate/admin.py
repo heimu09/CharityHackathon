@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Donation, BulletinBoard
+from .models import Donation, BulletinBoard, Expense, CrowdFunding
 
-admin.site.register([Donation, BulletinBoard])
+admin.site.register([Donation, BulletinBoard, Expense, CrowdFunding])

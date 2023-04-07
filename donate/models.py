@@ -31,3 +31,32 @@ class BulletinBoard(models.Model):
     class Meta:
         verbose_name = "Доска объявления"
         verbose_name_plural = "Доски объявлений"
+
+
+class Expense(models.Model):
+    amount = models.DecimalField('Сумма', max_digits=10, decimal_places=2)
+    description = models.CharField('Описание', max_length=255)
+    comment = models.TextField('Комментарий', blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"Расход на {self.description}: {self.amount}"
+
+    def save(self, *args, **kwargs):
+        if self.amount > 0:
+            self.amount = -self.amount
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "Расход"
+        verbose_name_plural = "Расходы"
+
+
+class CrowdFunding(models.Model):
+    full_name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=20)
+    telegram = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    goal = models.PositiveIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
