@@ -10,5 +10,5 @@ urlpatterns = [
     path('board/create/', BoardAPIViewPost.as_view()),
     path('board/view/', BoardAPIViewGetList.as_view()),
     path('board/update/<int:pk>/', BoardAPIViewUpdate.as_view()),
-    path('board/delete/', BoardAPIViewDelete.as_view()),
+    path('board/delete/<int:pk>/', BoardAPIViewDelete.as_view()),
 ]

@@ -21,8 +21,9 @@ class BulletinBoard(models.Model):
         verbose_name_plural = "Доски объявлений"
     
 
-# class DistributionNeeds(models.Model):
-#     name = models.CharField('Нужда', max_length=255)
-#     percent = models.FloatField('Процент')
+class DistributionNeeds(models.Model):
+    name = models.CharField('Нужда', max_length=255)
+    percent = models.FloatField('Процент')
+
 
 
