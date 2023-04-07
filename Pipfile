@@ -10,6 +10,7 @@ requests = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-filter = "*"
+drf-yasg = "*"
 
 [dev-packages]
 
