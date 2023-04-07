@@ -1,14 +1,7 @@
-from django.contrib import admin
 from django.urls import path
-from .views import (BoardAPIViewPost,
-                    BoardAPIViewGetList,
-                    BoardAPIViewUpdate,
-                    BoardAPIViewDelete)
-
+from . import views
 
 urlpatterns = [
-    path('board/create/', BoardAPIViewPost.as_view()),
-    path('board/view/', BoardAPIViewGetList.as_view()),
-    path('board/update/<int:pk>/', BoardAPIViewUpdate.as_view()),
-    path('board/delete/<int:pk>/', BoardAPIViewDelete.as_view()),
+    path('donations/', views.DonationViewSet.as_view({'get': 'list', 'post': 'create'}), name='donations-list-create'),
+    path('donations/<int:pk>/', views.DonationViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='donations-detail'),
 ]

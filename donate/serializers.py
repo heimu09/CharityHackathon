@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import BulletinBoard
+from .models import Donation
 
-
-class BulletinBoardSerializer(serializers.ModelSerializer):
+class DonationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = BulletinBoard
-        fields = ('name', 'phone_number', 'telegram', 'position', 'message',)
+        model = Donation
+        fields = ("full_name", "phone_number", "telegram",
+                   "amount", "initiative", "donation_date")

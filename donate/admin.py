@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BulletinBoard
+from .models import Donation
 
 
-admin.site.register(BulletinBoard)
+admin.site.register(Donation)
