@@ -8,7 +8,7 @@ SECRET_KEY = 'django-insecure-c5^zb%o*)6t18i1ry-px_4)=_9b@dfz=4ya31il4p2&(#lubsm
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["charity-hackathon.herokuapp.com", "localhost"]
 
 
 INSTALLED_APPS = [
