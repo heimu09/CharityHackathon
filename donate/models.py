@@ -61,3 +61,6 @@ class CrowdFunding(models.Model):
     description = models.TextField()
     goal = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.full_name}: {self.title}"
