@@ -64,3 +64,19 @@ class CrowdFunding(models.Model):
 
     def __str__(self) -> str:
         return f"{self.full_name}: {self.title}"
+
+
+class CryptoDonation(models.Model):
+    account_number = models.CharField("Ваш номер счета", max_length=50)
+    address = models.CharField("Наш адрес", max_length=50, default="DS717DA7128D94")
+    amount = models.DecimalField("Сумма ввода", max_digits=10, decimal_places=2)
+    cryptocurrency = models.CharField("Криптовалюта", max_length=50, default="USDT")
+    first_name = models.CharField("Имя", max_length=50)
+    last_name = models.CharField("Фамилия", max_length=50)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}: {self.amount} {self.cryptocurrency}"
+
+    class Meta:
+        verbose_name = "Криптопожертвование"
+        verbose_name_plural = "Криптопожертвования"

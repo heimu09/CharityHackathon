@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Donation, BulletinBoard, Expense, CrowdFunding
+from .models import Donation, BulletinBoard, Expense, CrowdFunding, CryptoDonation
 
 class DonationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,3 +26,8 @@ class CrowdFundingSerializer(serializers.ModelSerializer):
     class Meta:
         model = CrowdFunding
         fields = '__all__'
+
+class CryptoDonationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CryptoDonation
+        fields = ('id', 'account_number', 'address', 'amount', 'cryptocurrency', 'first_name', 'last_name')

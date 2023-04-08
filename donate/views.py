@@ -1,9 +1,9 @@
 #views.py
-from rest_framework import viewsets, generics
+from rest_framework import viewsets
 from django_filters import rest_framework as filters
 from rest_framework.filters import OrderingFilter
-from .models import Donation, BulletinBoard, Expense, CrowdFunding
-from .serializers import DonationSerializer, BulletinBoardSerializer, ExpenseSerializer, CrowdFundingSerializer
+from .models import Donation, BulletinBoard, Expense, CrowdFunding, CryptoDonation
+from .serializers import DonationSerializer, BulletinBoardSerializer, ExpenseSerializer, CrowdFundingSerializer, CryptoDonationSerializer
 
 
 class DonationViewSet(viewsets.ModelViewSet):
@@ -42,3 +42,7 @@ class ExpenseViewSet(viewsets.ModelViewSet):
 class CrowdFundingViewSet(viewsets.ModelViewSet):
     queryset = CrowdFunding.objects.all()
     serializer_class = CrowdFundingSerializer
+
+class CryptoDonationViewSet(viewsets.ModelViewSet):
+    queryset = CryptoDonation.objects.all()
+    serializer_class = CryptoDonationSerializer
