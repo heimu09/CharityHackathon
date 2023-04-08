@@ -12,7 +12,7 @@ class BulletinBoardSerializer(serializers.ModelSerializer):
     class Meta:
         model = BulletinBoard
         fields = ("full_name", "phone_number", "required_amount", 
-                  "message", "created_at")
+                  "message", "created_at", "telegram")
 
 
 class ExpenseSerializer(serializers.ModelSerializer):
