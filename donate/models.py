@@ -9,6 +9,10 @@ class Donation(models.Model):
     initiative = models.CharField("Инициатива", max_length=255, default="Благотворительность")
     donation_date = models.DateTimeField("Дата пожертвования", auto_now_add=True)
 
+    currency = models.CharField(max_length=3)
+    description = models.CharField(max_length=255)
+    stripe_token = models.CharField(max_length=255)
+
     def __str__(self):
         return f"{self.full_name} - {self.initiative} - {self.amount}"
 

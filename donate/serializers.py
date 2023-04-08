@@ -5,7 +5,7 @@ class DonationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Donation
         fields = ("full_name", "phone_number", "telegram",
-                   "amount", "initiative", "donation_date")
+                   "amount", "currency", "stripe_token", "initiative", "donation_date")
 
 
 class BulletinBoardSerializer(serializers.ModelSerializer):

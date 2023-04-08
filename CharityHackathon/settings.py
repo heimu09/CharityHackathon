@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django_filters',
     'donate.apps.DonateConfig',
     'drf_yasg',
+    "corsheaders",
 ]
 
 
@@ -35,6 +36,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'CharityHackathon.urls'

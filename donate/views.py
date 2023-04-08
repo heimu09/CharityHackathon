@@ -1,5 +1,8 @@
 #views.py
+import stripe
 from rest_framework import viewsets
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from django_filters import rest_framework as filters
 from rest_framework.filters import OrderingFilter
 from .models import Donation, BulletinBoard, Expense, CrowdFunding, CryptoDonation
@@ -46,3 +49,27 @@ class CrowdFundingViewSet(viewsets.ModelViewSet):
 class CryptoDonationViewSet(viewsets.ModelViewSet):
     queryset = CryptoDonation.objects.all()
     serializer_class = CryptoDonationSerializer
+
+
+
+class PaymentView(APIView):
+    def post(self, request):
+        serializer = DonationSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        amount = serializer.validated_data['amount']
+        currency = serializer.validated_data['currency']
+        description = serializer.validated_data['description']
+        stripe_token = serializer.validated_data['stripe_token']
+        date = serializer.validated_data['donation_date']
+
+        stripe.api_key = "pk_test_51MuUcYIhJKBioU0zfwDGHgQZFcLFSnv1s7vZIZ20H0xpGUGLVRHypAHqQbybNgG3udcBemc5MtMaJwifLRdI33lK00zDCXOQyY"
+
+        charge = stripe.Charge.create(
+            amount=int(amount * 100),
+            currency=currency,
+            description=description,
+            source=stripe_token
+        )
+
+        return Response({'status': 'success', 'charge_id': charge.id})

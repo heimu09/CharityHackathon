@@ -14,4 +14,6 @@ urlpatterns = [
     path('projects/<int:pk>/', views.CrowdFundingViewSet.as_view({'get': 'retrieve', 'put': 'update', 'patch': 'partial_update', 'delete': 'destroy'}), name='project-retrieve-update-destroy'),
     path('crypto_donations/', views.CryptoDonationViewSet.as_view({'get': 'list', 'post': 'create'}), name='crypto_donation-list-create'),
     path('crypto_donations/<int:pk>/', views.CryptoDonationViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='crypto_donation-retrieve-update-destroy'),
+
+    path('stripe/donat/', views.PaymentView.as_view())
 ]
